@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    
+    @Styles.Render("~/assets/styles/responsive.css")
+    @Styles.Render("~/assets/styles/template-picker.css")
+    @Styles.Render("~/assets/styles/vendor/animate.css")
+    @Styles.Render("~/assets/styles/vendor/slick.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/assets/styles/main.css")
+
+</head>
+<body>
+    <!-- ========== Navigation ========== -->
+    <nav class="navbar navbar-default navbar-fixed-top mega"  >
+        <div  class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Logo -->
+                @Html.ActionLink("Bring My Book", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div><!-- / .navbar-header -->
+            <!-- Navbar Links -->
+            <div id="navbar" class="navbar-collapse collapse">
+                <!-- Navbar Links Right -->
+                
+                @Html.Partial("_LoginPartial")
+            </div><!--/.navbar-collapse -->
+        </div><!-- / .container -->
+    </nav><!-- / .navbar -->
+    @RenderBody()
+    <hr />
+    <footer>
+        <p class="text-center">&copy; @DateTime.Now.Year - all rights reserved</p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/assets/js/vendor/slick.min.js")
+    @Scripts.Render("~/assets/js/vendor/wow.min.js")
+    @Scripts.Render("~/assets/js/main.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

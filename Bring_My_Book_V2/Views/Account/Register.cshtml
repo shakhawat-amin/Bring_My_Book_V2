@@ -1,0 +1,221 @@
+﻿@model Bring_My_Book_V2.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<header class="page-title pt-small pt-dark">
+    <div class="container">
+        <h1>@ViewBag.Title</h1>
+    </div>
+</header>
+
+<div class="login-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+
+                <!-- Log in -->
+                <div class="panel-group" id="login-accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel top-panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title text-center">
+                               Create a New Account
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+
+                                <div class="form-login">
+                                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label"})
+                                            </div>    
+                                            <div class="col-md-8">
+                                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Enter your Email" })
+                                                </div>
+                                            </div>
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                    @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
+                                             </div>  
+                                              <div class="col-md-8">
+                                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Enter a password" })
+                                                </div>
+                                            </div>
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
+                                             </div>
+                                             <div class="col-md-8">
+                                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Re-enter your password" })
+                                             </div>
+                                            </div>
+                                        
+                                        <div class="form-group ">
+                                            <div class="col-md-4">
+                                                @Html.LabelFor(m => m.Role, new { @class = "col-md-4 control-label" })
+                                            </div>
+                                            <div class="col-md-4 text-center">
+                                                Student    @Html.RadioButtonFor(m => m.Role, "Student", new { @id = "student" })
+                                            </div>
+                                            <div class="col-md-4  text-center">
+                                                Teacher  @Html.RadioButtonFor(m => m.Role, "Teacher", new { @id = "teacher" })
+                                            </div>
+                                        </div>
+                                        <div id="student1" >
+                                            <div class="form-group">
+                                                <div class="col-md-4">
+                                                    @Html.LabelFor(m => m.RegistrationNumber, new { @class = "col-md-4 control-label"})
+                                                </div>
+                                             <div class="col-md-8">
+                                                    @Html.TextBoxFor(m => m.RegistrationNumber, new { @class = "form-control", @placeholder = "Enter your Registration Number" })  
+                                             </div>
+                                         </div>
+                                          <div class="form-group">
+                                                <div class="col-md-4">
+                                                    @Html.LabelFor(m => m.Batch.BatchYear, new { @class = "col-md-4 control-label" })
+                                                </div>
+                                                <div class="col-md-8">
+                                                    @Html.DropDownListFor(m => m.Batch.BatchId,
+                                              new SelectList(Model.Allbatch.OrderByDescending(m => m.BatchYear), "BatchId", "BatchYear"), new { @class = "form-control"})
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        
+                                        <div id="teacher1">
+                                            <div class="form-group">
+                                            
+                                                <div class="col-md-4">
+                                                    @Html.LabelFor(m => m.Designation, new { @class = "col-md-4 control-label" })
+                                                </div>
+                                                 <div class="col-md-8">
+                                                    @Html.TextBoxFor(m => m.Designation, new { @class = "form-control", @placeholder = "Sir, Enter your Designation" })  
+                                                    
+                                                 </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            
+                                            <div class="col-md-4">
+                                                @Html.LabelFor(m => m.phoneNumber, new { @class = "col-md-4 control-label" })
+                                            </div>
+                                             <div class="col-md-8">
+                                                @Html.TextBoxFor(m => m.phoneNumber, new { @class = "form-control", @placeholder = "example(01926238182)" })  
+                                                 </div>
+                                        </div>
+                                        
+                                     <div class="form-group">
+                                            
+                                            <div class="col-md-4">
+                                                @Html.LabelFor(m => m.Department, new { @class = "col-md-4 control-label" })
+                                            </div>
+                                             <div class="col-md-8">
+                                                @Html.DropDownListFor(m => m.Department.DepartmentId,
+                                                  new SelectList(Model.AllDept.OrderBy(m => m.DepartmentName), "DepartmentId", "DepartmentName"), new { @class = "form-control"})
+
+                                                 </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-offset-4 col-md-8">
+                                                <input type="submit" class="btn btn-default" value="Register" />
+                                            </div>
+                                        </div>
+                                        }
+                                    </div><!-- / .form-login -->
+
+                            </div><!-- / .panel-body -->
+                        </div><!-- / .panel-collapse -->
+                    </div><!-- / .panel -->
+                    <!-- Register Account -->
+                    @*<div class="panel bottom-panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#login-accordion" href="#register-login-page-2" aria-expanded="false" aria-controls="register-login-page-2">
+                                        Register account
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="register-login-page-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+
+                                    <div class="form-register">
+                                        <form action="http://www.octarinethemes.com/demos/definity/pages/post">
+                                            <!-- First Name -->
+                                            <div class="form-group col-md-6 no-gap-left">
+                                                <input type="text" id="name-login-1" class="form-control" placeholder="First Name">
+                                                <label for="name-login-1">First Name</label>
+                                            </div>
+                                            <!-- Last name -->
+                                            <div class="form-group col-md-6 no-gap-right">
+                                                <input type="text" id="lastname-signup-1" class="form-control" placeholder="Last Name">
+                                                <label for="last-name-signup-1">Last Name</label>
+                                            </div>
+                                            <!-- Email -->
+                                            <div class="form-group">
+                                                <input type="email" id="email-signup-1" class="form-control" placeholder="Enter your email">
+                                                <label for="email-signup-1">Email</label>
+                                            </div>
+                                            <!-- Password -->
+                                            <div class="form-group">
+                                                <input type="password" id="pass-signup-1" class="form-control" placeholder="Enter a password">
+                                                <label for="pass-signup-1">Password</label>
+                                            </div>
+                                            <!-- Re-Enter Password -->
+                                            <div class="form-group">
+                                                <input type="password" id="re-pass-signup-1" class="form-control" placeholder="Re-enter your password">
+                                                <label for="re-pass-signup-1">Re-enter password</label>
+                                            </div>
+                                            <!-- Newsletter check -->
+                                            <div class="form-group">
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox" id="newsletter-check" value="option1" checked=""> Subscribe to our newsletter
+                                                </label>
+                                            </div>
+                                            <!-- Submit -->
+                                            <input type="submit" value="Register" class="btn">
+                                        </form>
+                                    </div><!-- / .form-wrapper -->
+
+                                </div><!-- / .panel-body -->
+                            </div><!-- / #register-login-page-2 .panel-colapse -->
+                        </div><!-- / .panel -->*@
+                </div><!-- / #login-accordion .panel-group -->
+
+
+            </div><!-- / .col-md-6 .col-md-offset-3 -->
+        </div><!-- / .row -->
+    </div>
+</div>
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    
+      
+    <script>
+        $(document).ready(function(){
+            $("#student").click(function () {
+                $("#teacher1").css("display", "none");
+                $("#student1").css("display", "block");
+            });
+            $("#teacher").click(function () {
+                $("#student1").css("display", "none");
+                $("#teacher1").css("display", "block");
+            });
+        });
+    </script>
+
+}

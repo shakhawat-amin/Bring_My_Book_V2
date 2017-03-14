@@ -50,6 +50,5 @@ D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\bin\Microsoft.Owin.Security
 D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\bin\Microsoft.Owin.Security.Google.xml
 D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\bin\Microsoft.Owin.Security.Twitter.xml
 D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\obj\Debug\Bring_My_Book_V2.csprojResolveAssemblyReference.cache
 D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\obj\Debug\Bring_My_Book_V2.dll
 D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\obj\Debug\Bring_My_Book_V2.pdb

@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    @*<link href="~/assets/styles/fonts/et-lineicons/css/style.css" rel="stylesheet" />
+    <link href="~/assets/styles/fonts/linea-font/css/linea-font.css" rel="stylesheet" />
+    <link href="~/assets/styles/fonts/fontawesome/css/font-awesome.min.css" rel="stylesheet" />*@
+    @Styles.Render("~/assets/styles/fonts/et-lineicons/css/style.css")
+    @Styles.Render("~/assets/styles/fonts/linea-font/css/linea-font.css")
+    @Styles.Render("~/assets/styles/fonts/fontawesome/css/font-awesome.min.css")
     
     @Styles.Render("~/assets/styles/responsive.css")
     @Styles.Render("~/assets/styles/template-picker.css")
@@ -43,7 +49,7 @@
     <footer>
         <p class="text-center">&copy; @DateTime.Now.Year - all rights reserved</p>
     </footer>
-
+   
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/assets/js/vendor/slick.min.js")

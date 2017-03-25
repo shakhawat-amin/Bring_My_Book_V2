@@ -19,7 +19,7 @@ namespace Bring_My_Book_V2.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationDbContext context = new ApplicationDbContext();
-        private bool check;
+       
 
         public AccountController()
         {
@@ -76,9 +76,22 @@ namespace Bring_My_Book_V2.Controllers
                 return View(model);
             }
 
+            string userName = null;
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            if(context.Users.Any(m => m.Email.Equals(model.Email)))
+            {
+               userName = context.Users.First(m => m.Email.Equals(model.Email)).UserName;
+            }
+
+            if (userName == null)
+            {
+                ModelState.AddModelError("Email", "No Such Email Has found");
+                return View(model);
+            }
+
+            var result = await SignInManager.PasswordSignInAsync(userName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -165,6 +178,10 @@ namespace Bring_My_Book_V2.Controllers
                 {
                     ModelState.AddModelError("phoneNumber", "This phone number is already used by some other user");
                 }
+                if (context.Users.Any(userIsExist => userIsExist.UserName.Equals(model.UserName)))
+                {
+                    ModelState.AddModelError("UserName", "This UserName is already taken");
+                }
 
                 if (model.Role == "Student" && model.RegistrationNumber == null)
                 {
@@ -186,9 +203,9 @@ namespace Bring_My_Book_V2.Controllers
                     return View(model);
                 }
 
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, };        // If everything is right then, adding to database
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, };        // If everything is right then, adding to database
                 var result = await UserManager.CreateAsync(user, model.Password);
-                check = true;                                                                       
+               // check = true;                                                                       
 
                 var usermodel = new User
                 {
@@ -197,6 +214,7 @@ namespace Bring_My_Book_V2.Controllers
                     
                     //Batch = context.Batches.First(batch => batch.BatchId == model.Batch.BatchId),
                     Batch = context.Batches.Find(model.Batch.BatchId),
+                    UserName = model.UserName,
                     phoneNumber = model.phoneNumber,
                     designation = model.Designation,
                     RegistrationNumber = model.RegistrationNumber,

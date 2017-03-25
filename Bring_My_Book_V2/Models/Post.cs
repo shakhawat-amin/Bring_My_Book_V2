@@ -13,7 +13,7 @@ namespace Bring_My_Book_V2.Models
         public DateTime PostDateTime {get; set;}
         public User PostUser { get; set; }
         public string PostDept { get; set; }
-        public string PostBatch { get; set; } 
+        public int PostBatch { get; set; } 
         public ICollection<User> UserInterested { get; set; }
         public List<User> UserInterestedList { get; set; }
  

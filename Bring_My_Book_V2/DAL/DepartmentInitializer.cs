@@ -80,6 +80,7 @@ namespace Bring_My_Book_V2.DAL
 
                 Batches.ForEach(b => context.Batches.Add(b));
                 context.SaveChanges();
+                
             }
     }
 }

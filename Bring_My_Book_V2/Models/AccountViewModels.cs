@@ -76,6 +76,9 @@ namespace Bring_My_Book_V2.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        [Required]
+        [Display(Name= "User Name")]
+        public string UserName {get; set;}
 
 
         [Required]

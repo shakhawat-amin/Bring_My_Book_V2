@@ -2,10 +2,13 @@
 @if (Request.IsAuthenticated)
 {
     <ul class="nav navbar-nav">
-       <li>@Html.ActionLink("Department", "Index", "Home")</li>
+        <li>@Html.ActionLink("Department", "Index", "Department")</li>
+        @*<li>@Html.ActionLink("Department posts", "Index", "Home")</li>
+        <li>@Html.ActionLink("Department own", "Index", "Home")</li>*@
+
         @if(User.IsInRole("Student"))
         {
-            <li>@Html.ActionLink("Batch", "About", "Home")</li>
+            <li>@Html.ActionLink("Batch", "Index", "Batch")</li>
             <li>@Html.ActionLink("Class", "Contact", "Home")</li>
         }
         else
@@ -18,10 +21,9 @@
     {
         @Html.AntiForgeryToken()
     
-
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @Html.ActionLink("Hello !", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
         </ul>

@@ -1,0 +1,107 @@
+﻿@using Bring_My_Book_V2.Models
+@model ICollection<Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Model.FirstOrDefault().PostDept.ToUpper()</h2>
+@Html.ActionLink("POST", "Post", "Department", new { @class = "btn-ghost"})<br>
+
+
+        
+        <div class="col-md-8">
+            total post = @ViewBag.TotalPost
+            
+        </div>
+   
+
+
+
+
+
+
+
+
+
+<!-- ========== Feature - Cards 2 ========== -->
+<div id="services" class="gray-bg">
+    <section class="container section ft-cards-2">
+
+        <header class="sec-heading">
+            <h2>Help your friends</h2>
+            <span class="subheading">ALL @Model.FirstOrDefault().PostDept DEPARTMENT'S Post</span>
+        </header>
+        <div class="row">
+
+            <div class="col-md-6">
+                @for (var n = 0; n <= (ViewBag.TotalPost - 1 ) / 2; n++)
+                {
+                    <div class="ft-card-item wow fadeInUp" data-wow-duration="1.2s">
+                        <div class="ft-content">
+                            <h5>@Model.ElementAt(n).PostUser.UserName @Model.ElementAt(n).PostDateTime.</h5>
+                            <h5>@Model.ElementAt(n).PostUser.phoneNumber @Model.ElementAt(n).PostUser.userRole</h5>
+                            <p>@Model.ElementAt(n).PostDescription</p>
+                            <a href="#" class="link-btn">Learn More <span class="linea-arrows-slim-right"></span></a>
+                        </div>
+                    </div><!-- / .ft-card-item -->
+                }
+                @*<!-- Item 1 -->
+                <div class="ft-card-item wow fadeInUp" data-wow-duration="1.2s">
+                    <img src="assets/images/ft-card2-img-1.jpg" alt="Feature Image">
+                    <div class="ft-content">
+                        <h5>Service One</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                        <a href="#" class="link-btn">Learn More <span class="linea-arrows-slim-right"></span></a>
+                    </div>
+                </div><!-- / .ft-card-item -->
+
+                <!-- Item 2 -->
+                <div class="ft-card-item wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1.2s">
+                    <img src="assets/images/ft-card2-img-3.jpg" alt="Feature Image">
+                    <div class="ft-content">
+                        <h5>Service Three</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                        <a href="#" class="link-btn">Learn More <span class="linea-arrows-slim-right"></span></a>
+                    </div>
+                </div><!-- / .ft-card-item -->*@
+            
+            
+            </div>  <!-- / .col-md-6 -->
+            <div class="col-md-6">
+                
+                @for (int n = (ViewBag.TotalPost - 1) / 2 + 1; n <= ViewBag.TotalPost - 1; n++)
+                {
+                    <div class="ft-card-item wow fadeInUp" data-wow-duration="1.2s">
+                        <div class="ft-content">
+                            <h5>@Model.ElementAt(n).PostUser.UserName @ViewBag.TotalPost</h5>
+                            <h5>@Model.ElementAt(n).PostUser.phoneNumber</h5>
+                            <p>@Model.ElementAt(n).PostDescription</p>
+                            <a href="#" class="link-btn">Learn More <span class="linea-arrows-slim-right"></span></a>
+                        </div>
+                    </div><!-- / .ft-card-item -->
+                }
+                @*<!-- Item 3 -->
+                <div class="ft-card-item wow fadeInUp" data-wow-duration="1.2s">
+                    <img src="assets/images/ft-card2-img-2.jpg" alt="Feature Image">
+                    <div class="ft-content">
+                        <h5>Service Two</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                        <a href="#" class="link-btn">Learn More <span class="linea-arrows-slim-right"></span></a>
+                    </div>
+                </div><!-- / .ft-card-item -->
+                <!-- Item 4 -->
+                <div class="ft-card-item wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1.2s">
+                    <img src="assets/images/ft-card2-img-4.jpg" alt="Feature Image">
+                    <div class="ft-content">
+                        <h5>Service Four</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                        <a href="#" class="link-btn">Learn More <span class="linea-arrows-slim-right"></span></a>
+                    </div>
+                </div><!-- / .ft-card-item -->*@
+            </div><!-- / .col-md-6 -->
+        </div><!-- / .row -->
+    </section><!-- / .container -->
+</div><!-- / .gray-bg -->
+
+

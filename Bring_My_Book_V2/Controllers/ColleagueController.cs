@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data.Entity;
 using System.Web.Mvc;
+using System.Data.Entity;
 using Bring_My_Book_V2.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -14,36 +14,40 @@ using Bring_My_Book_V2.Controllers;
 namespace Bring_My_Book_V2.Controllers
 {
 
-    [Authorize(Roles = "Student")]
-    public class BatchController : Controller
+     [Authorize(Roles = "Teacher")]
+    public class ColleagueController : Controller
     {
-        // GET: Batch
+        // GET: colleague
+       
+
         private ApplicationDbContext context = new ApplicationDbContext();
         User userInfo;
-        private int batchYear;
-        public BatchController ()
+        private int userId1;
+
+        public ColleagueController()
         {
             string userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
             userInfo = context.UserInfo.FirstOrDefault(user => user.UserIdentityId == userId);
-            
-
         }
         public ActionResult Index()
         {
+           
             var posts = new Collection<Post>();
-            batchYear = context.Batches.FirstOrDefault(batch => batch.BatchId.Equals(userInfo.BatchId)).BatchYear;
-
             foreach (var item in context.Posts.Include(b => b.PostUser).ToList())
             {
-                //if(item.PostUser.userRole.Equals("Student") && item.PostBatch.Equals(batchYear))
-                    posts.Add(item);
+                //var u = item.PostUser;
+                //var userId1 = u.UserId;
+                //var userInfo1 = context.UserInfo.FirstOrDefault(user => user.UserId == userId1);
 
+                //if(userInfo1.userRole.Equals("Teacher") && item.check.Equals(false))  //Colleague logic
+                posts.Add(item);
             }
-                
+
             ViewBag.TotalPost = posts.Count();
             ViewBag.userId = userInfo.UserId;
-            ViewBag.batch = batchYear;
+            ViewBag.dept = context.Departments.FirstOrDefault(user => user.DepartmentId == userInfo.DepartmentId).DepartmentName;
             return View(posts);
+        
         }
 
 
@@ -63,7 +67,6 @@ namespace Bring_My_Book_V2.Controllers
             return View(Post);
         }
 
-
         [HttpPost]
         public ActionResult Post(Post Post)
         {
@@ -76,24 +79,24 @@ namespace Bring_My_Book_V2.Controllers
                 Post.PostDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
 
 
-                if (userInfo.userRole.Equals("Student"))
-                {
-                    Post.PostBatch = context.Batches.FirstOrDefault(user => user.BatchId == userInfo.BatchId).BatchYear;
-                }
+               
+                    //Post.PostBatch = context.Batches.FirstOrDefault(user => user.BatchId == userInfo.BatchId).BatchYear;
+                    
                 Post.check = false;
 
                 context.Posts.Add(Post);
 
                 context.SaveChanges();
-                return RedirectToAction("Index", "Batch");
+                return RedirectToAction("Index", "Colleague");
 
             }
-
-
             //something went wrong. 
             return View(Post);
 
         }
+
+
+
 
 
     }

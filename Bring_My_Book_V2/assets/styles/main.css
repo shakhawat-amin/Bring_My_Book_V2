@@ -316,8 +316,8 @@ hr {
 }
 
 .section {
-  padding-top: 160px;
-  padding-bottom: 100px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 .section-heading h1,
@@ -3193,7 +3193,7 @@ fieldset[disabled] .form-control:hover {
 .ft-cards-2 .ft-card-item .ft-content {
   display: inline-block;
   padding: 50px 40px;
-  width: 56%;
+  width: 100%;
 }
 
 .ft-cards-2 .ft-card-item .ft-content h5, .ft-cards-2 .ft-card-item .ft-content .ft-boxed-hover ul li .hover-content .ft-heading, .ft-boxed-hover ul li .hover-content .ft-cards-2 .ft-card-item .ft-content .ft-heading, .ft-cards-2 .ft-card-item .ft-content .ft-tabs .tabs-list li a .tab-group .tab-info, .ft-tabs .tabs-list li a .tab-group .ft-cards-2 .ft-card-item .ft-content .tab-info, .ft-cards-2 .ft-card-item .ft-content .sidebar .comments-widget .widget-item span .widget-comm-title, .sidebar .comments-widget .widget-item span .ft-cards-2 .ft-card-item .ft-content .widget-comm-title, .ft-cards-2 .ft-card-item .ft-content .comingsoon .content-wrapper .content-inner .cs-timer .item .title-timer, .comingsoon .content-wrapper .content-inner .cs-timer .item .ft-cards-2 .ft-card-item .ft-content .title-timer, .ft-cards-2 .ft-card-item .ft-content .shop-layout-options span, .shop-layout-options .ft-cards-2 .ft-card-item .ft-content span {
@@ -3204,6 +3204,7 @@ fieldset[disabled] .form-control:hover {
 .ft-cards-2 .ft-card-item .ft-content p {
   margin: 0;
   color: #999;
+  margin-top: 20px;
 }
 
 .ft-cards-2 .ft-card-item .ft-content .link-btn {
@@ -10286,8 +10287,38 @@ form .input-error-2:focus {
   background: #f8f8f8;
 }
 
+a.btn-ghost-light.pull-right {
+    margin-top: -35px;
+}
+
+.ft-content i.fa {
+    margin-right: 5px;
+}
+
+.ft-content .info {
+    border-bottom: 1px dotted #eaeaea;
+    border-top: 1px dotted #eaeaea;
+    padding: 10px 0;
+    color: rgba(100, 100, 100, 0.8);
+    text-align: center;
+}
+
+.ft-content .info li {
+    display: inline;
+    padding: 0 15px 0 15px;
+}
+
+.ft-content .info li:not(:last-child) 
+{
+    border-right: 1px solid #eaeaea;
+}
+
+.ft-content .info li:first-child {
+    padding-left: 0px;
+}
+
 /*# sourceMappingURL=main.css.map */
 
-/*#student1, #teacher1 {
+#student1, #teacher1 {
     display:none;
-}*/
+}

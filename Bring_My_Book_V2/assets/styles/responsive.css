@@ -1107,6 +1107,9 @@
   .product-info {
     margin-top: 50px;
   }
+  a.btn-ghost-light.pull-right {
+    margin-top: 15px;
+  }
 }
 
 @media (max-width: 770px) {

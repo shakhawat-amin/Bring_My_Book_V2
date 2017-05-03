@@ -193,9 +193,9 @@ namespace Bring_My_Book_V2.Controllers
                     ModelState.AddModelError("Designation", "Teacher's Designation can not be empty ");
                 }
 
-                if (context.UserInfo.Any(userExist => userExist.RegistrationNumber == model.RegistrationNumber))
+                if (model.RegistrationNumber != null && context.UserInfo.Any(userExist => userExist.RegistrationNumber == model.RegistrationNumber))
                 {
-                    ModelState.AddModelError("RegistrationNumber", "This phone number is already used by some other user");
+                    ModelState.AddModelError("RegistrationNumber", "This Registration Number is already created Account");
                 }
 
                 if(!ModelState.IsValid)
@@ -210,10 +210,10 @@ namespace Bring_My_Book_V2.Controllers
                 var usermodel = new User
                 {
                     //Department = context.Departments.First(dept => dept.DepartmentId == model.Department.DepartmentId),
-                    Department = context.Departments.Find(model.Department.DepartmentId),
+                    DepartmentId = model.Department.DepartmentId,
                     
                     //Batch = context.Batches.First(batch => batch.BatchId == model.Batch.BatchId),
-                    Batch = context.Batches.Find(model.Batch.BatchId),
+                    BatchId = model.Batch.BatchId,
                     UserName = model.UserName,
                     phoneNumber = model.phoneNumber,
                     designation = model.Designation,
@@ -253,7 +253,7 @@ namespace Bring_My_Book_V2.Controllers
                 
                 
                 
-                context.SaveChanges();
+               // context.SaveChanges();
                 UserManager.AddToRole(user.Id, model.Role);
 
                 if (result.Succeeded)

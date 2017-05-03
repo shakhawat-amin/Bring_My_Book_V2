@@ -13,8 +13,8 @@ namespace Bring_My_Book_V2.Models
         public int  UserId  {get; set;}          //User.Identity.GetUserId();
         public string UserIdentityId { get; set; }
         public string UserName { get; set; }
-        public  Department Department { get; set; }
-        public  Batch Batch { get; set; }
+        public  int DepartmentId { get; set; }
+        public  int BatchId { get; set; }
         public string RegistrationNumber { get; set; }
         public string designation { get; set; }
         

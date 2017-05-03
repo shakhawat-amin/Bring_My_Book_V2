@@ -27,11 +27,11 @@
 
 		// Parallax disabled for mobile screens
 		if ($(window).width() >= 1260) {
-			initParallax();
+			// initParallax();
 
-			$(window).stellar({
-				hideDistantElements: false
-			});
+			//$(window).stellar({
+			//	hideDistantElements: false
+			//});
 		}
 
 	});
@@ -46,7 +46,7 @@
 		});
 
 		// initPortfolio();
-		initBlogMasonry();
+		// initBlogMasonry();
 
 	});
 
@@ -154,21 +154,21 @@
 -------------------------------------------------- */
 
 	
-	function initParallax () {
+	//function initParallax () {
 
-		var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+	//	var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 
-		if (!isSafari) {
-			$(".main-op").parallax("50%", 0.2);
-			$(".number-counters").parallax("50%", 0.2);
-			$(".cirlce-counters").parallax("50%", 0.3);
-			$(".client-list-parallax").parallax("50%", 0.4);
-			$(".ft-slider-parallax").parallax("50%", 0.4);
-			$(".testimonials-parallaxx").parallax("50%", 0.4);
-			$(".twitter-slider").parallax("50%", 0.4);
-			$(".login-2").parallax("50%", 0.2);
-		}		
-	}
+	//	if (!isSafari) {
+	//		$(".main-op").parallax("50%", 0.2);
+	//		$(".number-counters").parallax("50%", 0.2);
+	//		$(".cirlce-counters").parallax("50%", 0.3);
+	//		$(".client-list-parallax").parallax("50%", 0.4);
+	//		$(".ft-slider-parallax").parallax("50%", 0.4);
+	//		$(".testimonials-parallaxx").parallax("50%", 0.4);
+	//		$(".twitter-slider").parallax("50%", 0.4);
+	//		$(".login-2").parallax("50%", 0.2);
+	//	}		
+	//}
 
 
 
@@ -664,16 +664,16 @@
 	Blog Masonry Layout
 -------------------------------------------------- */
 
-	function initBlogMasonry () {
+	//function initBlogMasonry () {
 
-		var $container = $('.blog-container');
-			// init
-			$container.isotope({
-				// options
-				itemSelector: '.blog-selector',
-				percentPosition: true
-			});
-	}
+	//	var $container = $('.blog-container');
+	//		// init
+	//		$container.isotope({
+	//			// options
+	//			itemSelector: '.blog-selector',
+	//			percentPosition: true
+	//		});
+	//}
 	
 
 

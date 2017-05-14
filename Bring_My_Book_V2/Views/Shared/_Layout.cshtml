@@ -47,7 +47,16 @@
     @RenderBody()
     <hr />
     <footer>
-        <p class="text-center">&copy; @DateTime.Now.Year - all rights reserved</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-left">&copy; @DateTime.Now.Year - All Rights Reserved</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-right">Developed By SUST CSE</p>
+                </div>
+            </div>
+        </div>
     </footer>
    
     @Scripts.Render("~/bundles/jquery")

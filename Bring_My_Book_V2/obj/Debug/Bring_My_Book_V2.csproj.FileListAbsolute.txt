@@ -53,3 +53,6 @@ D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\bin\Microsoft.Owin.Security
 D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\obj\Debug\Bring_My_Book_V2.dll
 D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\obj\Debug\Bring_My_Book_V2.pdb
 D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\obj\Debug\Bring_My_Book_V2.csprojResolveAssemblyReference.cache
+D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\bin\MoreLinq.dll
+D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\bin\System.ValueTuple.dll
+D:\codes of c#\MVC\Bring_My_Book_V2\Bring_My_Book_V2\bin\MoreLinq.xml

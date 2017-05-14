@@ -279,7 +279,7 @@ hr {
 }
 
 .gray-bg {
-  background: #f8f8f8;
+  background: #ddd;
 }
 
 .bg-white {
@@ -2563,7 +2563,7 @@ fieldset[disabled] .form-control:hover {
 
 .navbar .navbar-header {
   width: 27%;
-  margin-top: 6px;
+  margin-top: 0px;
 }
 
 .navbar .navbar-header .navbar-brand {
@@ -2572,7 +2572,8 @@ fieldset[disabled] .form-control:hover {
 }
 
 .navbar .navbar-nav {
-  margin-top: 12px;
+  margin-top: 0px;
+  
 }
 
 .navbar .navbar-nav li a {
@@ -3020,7 +3021,8 @@ fieldset[disabled] .form-control:hover {
 /* ---- Navbar Utility ---- */
 .navbar-trans {
   border-bottom: none;
-  background: transparent;
+  background: #fff;
+  z-index: 9;
   -webkit-transition: background 0.3s;
           transition: background 0.3s;
 }
@@ -3081,7 +3083,7 @@ fieldset[disabled] .form-control:hover {
 }
 
 .navbar-small .navbar-header .navbar-brand {
-  padding: 9px 0;
+  padding: 15px 0;
 }
 
 .navbar-small .navbar-nav {
@@ -3169,8 +3171,8 @@ fieldset[disabled] .form-control:hover {
 
 /* ---- 9.2 Feature - Cards 2 ---- */
 .ft-cards-2 .ft-card-item {
-  margin-bottom: 50px;
-  height: 254px;
+  margin-bottom: 30px;
+  height: auto;
   background: #fff;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
   -webkit-transition: all 0.3s;
@@ -3205,6 +3207,7 @@ fieldset[disabled] .form-control:hover {
   margin: 0;
   color: #999;
   margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .ft-cards-2 .ft-card-item .ft-content .link-btn {
@@ -4839,7 +4842,8 @@ fieldset[disabled] .form-control:hover {
   display: block;
   font-family: "Open Sans", "Montserrat", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 13px;
-  letter-spacing: 3.5px;
+  letter-spacing: 1px;
+  line-height: 21px;
   color: #999;
 }
 
@@ -10321,4 +10325,116 @@ a.btn-ghost-light.pull-right {
 
 #student1, #teacher1 {
     display:none;
+}
+
+.t-image img {
+    margin-top: 40px;
+}
+
+footer {
+    padding: 20px 0px;
+}
+
+footer p {
+    margin-bottom: 0px;
+}
+
+
+
+.table {
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.table th {
+    text-align: center;
+}
+
+.nav-tabs li a {
+    background-color: #fff;
+    color: #111;
+    padding: 16px;
+    margin-right: 1px;
+    border: 1px solid #111111;
+}
+
+.nav-tabs {
+    border-top: none;
+    padding-left: 65px;
+    margin-bottom: 10px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: #111;
+    color: #fff;
+    padding: 17px;
+    margin-right: 1px;
+    border: 1px solid #111111;
+}
+
+.nav-tabs li a:hover {
+    border: 1px solid transparent;
+    color: #fff;
+    background-color: rgba(102, 95, 105, 0.72)
+}
+
+.widget {
+    margin-bottom: 24px;
+    padding: 30px 15px;
+}
+
+.form-horizontal .control-label {
+    float: right;
+}
+
+.fixed-section {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+}
+
+.sidebar {
+    background-color: #fff;
+}
+
+.widget h2 {
+    margin: 0px;
+    margin-bottom: 35px;
+    padding: 15px 0px;
+    background-color: #361d42;
+    color: #fff;
+}
+
+/*.jumptop {
+    margin-top: 200px !important;
+}*/
+
+#services {
+    margin-top: 110px;
+}
+
+.modal-content {
+    min-height: 80vh;
+    text-align: center;
+    padding: 30px;
+    display: table;
+}
+
+.valign-center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.top-post-widget a{
+    display: block;
+    margin-bottom: 15px;
+
+}
+
+.top-post-link {
+    border: 1px solid #838383;
+    text-align: center;
+    width: 100%;
+    padding: 7px 0px;
+    color: #000;
 }

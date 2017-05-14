@@ -8,7 +8,7 @@
     // Initialize all functions when the document is ready.
 	$(document).ready(function(){
 
-		initNavbar();
+		//initNavbar();
 		//initScroller();
 		initCountCirc();
 		initCountCircMin();
@@ -55,79 +55,79 @@
 	Navigation | Navbar
 -------------------------------------------------- */
 	
-	function initNavbar(){
+	//function initNavbar(){
 
 		// Sticky Nav & Transparent Background
-		$(window).scroll(function(){
+		//$(window).scroll(function(){
 			
-			if ($(window).scrollTop() > 20) {
-				$('nav').removeClass('navbar-trans', 300);
-				$('nav').removeClass('navbar-trans-dark');
-				$('nav').addClass('navbar-small', 300);
-			}
-			else {
-				$('nav:not(.mobile-nav)').addClass('navbar-trans', 300);
-				$('nav').removeClass('navbar-small', 300);
+		//	if ($(window).scrollTop() > 20) {
+		//		$('nav').removeClass('navbar-trans', 300);
+		//		$('nav').removeClass('navbar-trans-dark');
+		//		$('nav').addClass('navbar-small', 300);
+		//	}
+		//	else {
+		//		$('nav:not(.mobile-nav)').addClass('navbar-trans', 300);
+		//		$('nav').removeClass('navbar-small', 300);
 
-				if ($('nav').hasClass('trans-helper')) {
-					$('nav:not(.mobile-nav)').addClass('navbar-trans-dark');
-				}
-			}
+		//		if ($('nav').hasClass('trans-helper')) {
+		//			$('nav:not(.mobile-nav)').addClass('navbar-trans-dark');
+		//		}
+		//	}
 
-			$('nav:not(.navbar-fixed-top)').removeClass('navbar-trans navbar-small navbar-trans-dark');
+		//	$('nav:not(.navbar-fixed-top)').removeClass('navbar-trans navbar-small navbar-trans-dark');
 
-		});
+		//});
 
 
 		// Nav on mobile screens
-		$(window).resize(function() {
-	        if ($(window).width() <= 1259) {
-				$('nav').addClass('mobile-nav');		        
-		    } else {
-		    	$('nav').removeClass('mobile-nav');
-		    }
+		//$(window).resize(function() {
+	    //    if ($(window).width() <= 1259) {
+		//		$('nav').addClass('mobile-nav');		        
+		//    } else {
+		//    	$('nav').removeClass('mobile-nav');
+		//    }
 
-    		if ($('nav').hasClass('mobile-nav')) {
-    			$('nav').removeClass('navbar-trans');
-    			$('nav').removeClass('navbar-trans-dark');
-    		} else {
-    			if ($(window).width() >= 1259 && $(window).top) {
-    				$('nav').addClass('navbar-trans');
-    			}
-    		}
+    	//	if ($('nav').hasClass('mobile-nav')) {
+    	//		$('nav').removeClass('navbar-trans');
+    	//		$('nav').removeClass('navbar-trans-dark');
+    	//	} else {
+    	//		if ($(window).width() >= 1259 && $(window).top) {
+    	//			$('nav').addClass('navbar-trans');
+    	//		}
+    	//	}
 
-    		// Remove dropdown open on hover for small screens
-    		if ($('nav').hasClass('mobile-nav')) {
+    	//	// Remove dropdown open on hover for small screens
+    	//	if ($('nav').hasClass('mobile-nav')) {
 
-    			$('.dropdown-toggle').on('mouseover', function(e){    
-    			        e.preventDefault();
+    	//		$('.dropdown-toggle').on('mouseover', function(e){    
+    	//		        e.preventDefault();
 
-    			        $('.dropdown').removeClass('open');
+    	//		        $('.dropdown').removeClass('open');
 
-    			    e.stopPropagation();
-    			});
-    		}
+    	//		    e.stopPropagation();
+    	//		});
+    	//	}
 
     		// Close mobile menu when clicked link
     		// var isNotDropdown = $('nav:not(.mobile-nav)');
 
-    		if (!$('.nav a').hasClass('dropdown-toggle')) {
+    	//	if (!$('.nav a').hasClass('dropdown-toggle')) {
 
-    			$('.nav a').on('click', function(){ 
-			        if($('.navbar-toggle').css('display') !='none'){
-			            $(".navbar-toggle").trigger( "click" );
-			        }
-			    });
+    	//		$('.nav a').on('click', function(){ 
+		//	        if($('.navbar-toggle').css('display') !='none'){
+		//	            $(".navbar-toggle").trigger( "click" );
+		//	        }
+		//	    });
 
-    		}
+    	//	}
 
-	    }).resize();
+	    //}).resize();
 
 		// Bugfix for iOS not scrolling on open menu
-	    $(".navbar-collapse").css({ maxHeight: $(window).height() - $(".navbar-header").height() + "px" });
+	//    $(".navbar-collapse").css({ maxHeight: $(window).height() - $(".navbar-header").height() + "px" });
 
 
-	} // initNavbar
+	//} // initNavbar
 
 
 
@@ -881,6 +881,25 @@ function validateField ( field ) {
 	// Display the errors
 	siblings.html( errorText );
 
-	}
+}
+
+//var shouldRemoveClass = false;
+//    $("#postFinder").click(function () {
+//        var href = $(this).attr('href');
+//        console.log(href);
+//        //$('href').empty().addClass('jumptop');
+//        shouldRemoveClass = true;
+//        $(href).addClass('jumptop');
+//    });
+//    $(window).scroll(function () {
+//        console.log("bal");
+//        if (shouldRemoveClass)
+//        $('.ft-card-item').removeClass('jumptop');
+//    });
+
+//    $(window).scrollEnd(function () {
+//        console.log('mara kha');
+//        shouldRemoveClass = false;
+//    }, 1000);
 
 });

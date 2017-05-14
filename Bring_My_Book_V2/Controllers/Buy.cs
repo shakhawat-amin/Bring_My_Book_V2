@@ -14,14 +14,14 @@ using Bring_My_Book_V2.Controllers;
 namespace Bring_My_Book_V2.Controllers
 {
 
-    [Authorize(Roles = "Student")]
-    public class BatchController : Controller
+    [Authorize]
+    public class BuyController : Controller
     {
         // GET: Batch
         private ApplicationDbContext context = new ApplicationDbContext();
         User userInfo;
-        private int batchYear;
-        public BatchController ()
+       
+        public BuyController ()
         {
             string userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
             userInfo = context.UserInfo.FirstOrDefault(user => user.UserIdentityId == userId);
@@ -31,10 +31,12 @@ namespace Bring_My_Book_V2.Controllers
         public ActionResult Index()
         {
             var posts = new Collection<Post>();
-            batchYear = context.Batches.FirstOrDefault(batch => batch.BatchId.Equals(userInfo.BatchId)).BatchYear;
+            //batchYear = context.Batches.FirstOrDefault(batch => batch.BatchId.Equals(userInfo.BatchId)).BatchYear;
 
-            foreach (var item in context.Posts.Include(b => b.PostUser).ToList())
+            foreach (var item in context.Posts.Include(b => b.PostUser).Include(b => b.Buyers).ToList())
             {
+                System.Console.WriteLine(item.Buyers);
+                System.Console.WriteLine(11111);
                 //if(item.PostUser.userRole.Equals("Student") && item.PostBatch.Equals(batchYear))
                     posts.Add(item);
 
@@ -42,16 +44,18 @@ namespace Bring_My_Book_V2.Controllers
                 
             ViewBag.TotalPost = posts.Count();
             ViewBag.userId = userInfo.UserId;
-            ViewBag.batch = batchYear;
+            var p = posts.OrderBy(b => b.PostDateTime);
+            
             return View(posts);
         }
 
 
-        public ActionResult Index1(Post post)
+        public ActionResult Index1(Post post1)
         {
-            var post1 = context.Posts.FirstOrDefault(p => p.PostId.Equals(post.PostId));
-            post1.BuyerId = userInfo.UserId;
-            post1.check = true;
+            var post = context.Posts.Include(p => p.Buyers).FirstOrDefault(p => p.PostId.Equals(post1.PostId));
+            post.BuyerId = userInfo.UserId;
+            post.Buyers.Add(userInfo);
+            post.check = true;
             context.SaveChanges();
             //return View(post);
             return RedirectToAction("Index");
@@ -74,18 +78,20 @@ namespace Bring_My_Book_V2.Controllers
                 Post.PostDept = context.Departments.FirstOrDefault(user => user.DepartmentId == userInfo.DepartmentId).DepartmentName;
 
                 Post.PostDateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-
+                Post.PostUpdateTime = Post.PostDateTime;
 
                 if (userInfo.userRole.Equals("Student"))
                 {
                     Post.PostBatch = context.Batches.FirstOrDefault(user => user.BatchId == userInfo.BatchId).BatchYear;
                 }
+               
+                
                 Post.check = false;
 
                 context.Posts.Add(Post);
 
                 context.SaveChanges();
-                return RedirectToAction("Index", "Batch");
+                return RedirectToAction("Index", "Buy");
 
             }
 

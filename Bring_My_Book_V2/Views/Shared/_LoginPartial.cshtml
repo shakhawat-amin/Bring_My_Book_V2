@@ -2,21 +2,13 @@
 @if (Request.IsAuthenticated)
 {
     <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Department", "Index", "Department")</li>
+        @*<li>@Html.ActionLink("Department", "Index", "Department")</li>*@
         @*<li>@Html.ActionLink("Department posts", "Index", "Home")</li>
         <li>@Html.ActionLink("Department own", "Index", "Home")</li>*@
 
-        @if(User.IsInRole("Student"))
-        {
-            <li>@Html.ActionLink("Batch", "Index", "Batch")</li>
+       
+            <li>@Html.ActionLink("Buy", "Index", "Buy")</li>
             
-        }
-        else
-        {
-            <li>@Html.ActionLink("colleague", "Index", "colleague")</li>
-            
-        }
-        <li>@Html.ActionLink("Posts", "Index", "Post")</li>
     </ul>   <!-- / .nav .navbar-nav .navbar-right -->
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {

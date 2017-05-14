@@ -26,7 +26,7 @@
                             <div class="panel-body">
 
                                 <div class="form-login">
-                                    @using (Html.BeginForm("Post", "Batch", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                    @using (Html.BeginForm("Post", "Buy", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                                     {
                                         @Html.AntiForgeryToken()
 
@@ -34,23 +34,40 @@
                                            <!-- Textarea -->
 
                                         <div class="form-group">
-                                            <div class="col-md-4">
-                                                @Html.LabelFor(m => m.PostDescription, new { @class = "col-md-4 control-label" })
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(m => m.PostName, new { @class = "control-label" })
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(m => m.PostName, new { @class = "form-control"})
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(m => m.PostDescription, new { @class = "control-label" })
                                             </div>
 
-                                            <div class="col-md-8">
-                                                @Html.TextAreaFor(m => m.PostDescription, new { @class = "form-control", @placeholder = "Write details about your post", @rows = "9" })
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(m => m.PostDescription, new { @class = "form-control", @placeholder = "Write details about your post", @rows = "3" })
                                             </div>
 
                                         </div>
 
 
                                         <div class="form-group">
-                                            <div class="col-md-4">
-                                                @Html.LabelFor(m => m.Price, new { @class = "col-md-4 control-label" })
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(m => m.Price, new { @class = "control-label" })
                                             </div>
-                                            <div class="col-md-8">
+                                            <div class="col-md-9">
                                                 @Html.TextBoxFor(m => m.Price, new { @class = "form-control", @type = "number", @min = "0" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(m => m.PostQuantity, new { @class = "control-label" })
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(m => m.PostQuantity, new { @class = "form-control", @type = "number", @min = "0" })
                                             </div>
                                         </div>
 

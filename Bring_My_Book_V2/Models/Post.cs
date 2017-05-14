@@ -11,14 +11,31 @@ namespace Bring_My_Book_V2.Models
         public int PostId { get; set; }
 
         [Required]
+        [Display(Name="Product Name")]
+        public string PostName {get; set;}
+
+        [Required]
         [Display(Name = "Description")]
         public string PostDescription { get; set; }
 
         public DateTime PostDateTime {get; set;}
 
+        public string PostType { get; set; }
+        public DateTime PostUpdateTime { get; set; }
+        public int TotalSell { get; set; }
+
+        [Required]
+        [Display(Name= "Quantity")]
+        public int PostQuantity { get; set; }
+        public List<User> Buyers { get; set; }
+        public List<int> PostBuyers { get; set; }
+
+
         // type buy sell
         //update time
-        //
+        //image load
+        //if sell type amount of product
+        //public List<int> buyers
 
         public double Price { get; set; }
         public User PostUser { get; set; }
